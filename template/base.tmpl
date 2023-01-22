@@ -1,0 +1,28 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pricewarp</title>
+    <link rel="stylesheet" href="/static/main.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Pricewarp</h1>
+      {{if .User}}
+        <nav>
+          <a class="button" href="/alert">Alerts</a>
+          <a class="button" href="/portfolio">Portfolio</a>
+          <button type="button" class="secondary" id="logout">Logout</button>
+        </nav>
+      {{end}}
+    </header>
+    {{template "breadcrumbs" .}}
+    <main>
+      {{template "main" .}}
+    </main>
+    <script src="/static/main.js" defer></script>
+  </body>
+</html>
+{{end}}

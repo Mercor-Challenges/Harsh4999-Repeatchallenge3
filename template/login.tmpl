@@ -1,0 +1,26 @@
+{{define "breadcrumbs"}}
+{{end}}
+{{define "main"}}
+<form method="post">
+  {{if .ErrorMessage}}
+    <div class="error">
+      {{.ErrorMessage}}
+    </div>
+  {{end}}
+  <div class="field-wrapper">
+    <label>
+      Username:
+      <input type="text" name="username" autocomplete="on">
+    </label>
+  </div>
+  <div class="field-wrapper">
+    <label>
+      Password:
+      <input type="password" name="password" autocomplete="on">
+    </label>
+  </div>
+  <div class="field-wrapper">
+    <button>Submit</button>
+  </div>
+</form>
+{{end}}

@@ -1,0 +1,30 @@
+{{define "breadcrumbs"}}
+{{end}}
+{{define "main"}}
+  {{template "alert-form" .}}
+  <table class="price-table alert-table">
+    <tbody>
+      {{range .AlertList}}
+        <tr>
+          <td class="fill alert-description{{if .Sent}} sent{{end}}">
+            <span class="from-currency">{{.From.Name}}</span>
+            <span class="direction">{{if .Above}}≥{{else}}≤{{end}}</span>
+            <span class="value">{{.Value.StringFixed 2}}</span>
+            <span class="to-currency">{{.To.Name}}</span>
+          </td>
+          <td><a class="button" href="/alert/{{.ID}}">Edit</a></td>
+          <td><button type="button" class="danger" data-try-delete-id="{{.ID}}">Delete</button></td>
+        </tr>
+      {{end}}
+    </tbody>
+  </table>
+  <div hidden class="modal" data-confirm-delete-modal>
+    <div class="modal-content">
+      <p>Are you sure you wish to delete the alert?</p>
+      <div class="modal-actions">
+        <button type="button" class="danger" data-confirm>Confirm Deletion</button>
+        <button type="button" class="secondary cancel" data-cancel>Cancel</button>
+      </div>
+    </div>
+  </div>
+{{end}}
